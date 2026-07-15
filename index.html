@@ -63,7 +63,8 @@ body{
   display:flex;align-items:center;gap:12px;
   box-shadow:0 2px 12px var(--shadow);
 }
-.header h1{font-size:1.1rem;font-weight:600;letter-spacing:.02em;flex:1}
+.header h1{font-size:1.1rem;font-weight:600;letter-spacing:.02em;flex:1;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+.header h1:active{opacity:.7}
 .menu-btn{
   background:none;border:none;color:var(--header-text);
   font-size:1.5rem;cursor:pointer;padding:4px;
@@ -656,6 +657,10 @@ menuBtn.addEventListener('click',openDrawer);
 closeDrawerBtn.addEventListener('click',closeDrawer);
 drawerOverlay.addEventListener('click',closeDrawer);
 
+document.querySelector('.header h1').addEventListener('click',function(){
+  searchInput.value='';clearBtn.classList.remove('visible');
+  currentQuery='';showWelcome();searchInput.focus();
+});
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
 
 </script>
