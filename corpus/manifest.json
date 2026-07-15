@@ -1,0 +1,496 @@
+{
+  "generatedAt": "2026-07-15T21:12:29.040Z",
+  "baseUrl": "https://duna2026.ru",
+  "totalFiles": 58,
+  "totalChars": 782780,
+  "files": [
+    {
+      "folder": "01-общие-правила",
+      "file": "01-даты-игры-и-полигон.txt",
+      "title": "Даты игры и полигон",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/datesandpalce",
+      "charCount": 491
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "02-идея-игры.txt",
+      "title": "Идея игры",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/concept",
+      "charCount": 2617
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "03-мастера.txt",
+      "title": "Мастера",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/masters",
+      "charCount": 4100
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "04-взносы.txt",
+      "title": "Взносы",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/donations",
+      "charCount": 2516
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "05-кабаки.txt",
+      "title": "Кабаки",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/pubs",
+      "charCount": 7718
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "06-гости-на-игре.txt",
+      "title": "Гости на игре",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/guests",
+      "charCount": 2525
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "07-дети-на-игре.txt",
+      "title": "Дети на игре",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/children",
+      "charCount": 10949
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "08-домашние-животные.txt",
+      "title": "Домашние животные",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/pets",
+      "charCount": 2497
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "09-фото-и-видеографы.txt",
+      "title": "Фото и видеографы",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/foto_video",
+      "charCount": 3924
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "10-кросспол.txt",
+      "title": "Кросспол",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/crossgender",
+      "charCount": 1565
+    },
+    {
+      "folder": "01-общие-правила",
+      "file": "11-современное-на-игре.txt",
+      "title": "Современное на игре",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/current_technologies",
+      "charCount": 5003
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "01-фафрелах.txt",
+      "title": "Фафрелах",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/fafrelakh",
+      "charCount": 21387
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "02-экономика.txt",
+      "title": "Экономика",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/economics",
+      "charCount": 5745
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "03-макроэкономика-и-политика.txt",
+      "title": "Макроэкономика и политика",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/macro",
+      "charCount": 16111
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "04-космическая-гильдия.txt",
+      "title": "Космическая гильдия",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/cosmoguild",
+      "charCount": 28613
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "05-пряность.txt",
+      "title": "Пряность",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/melange",
+      "charCount": 14562
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "06-глубокая-пустыня.txt",
+      "title": "Глубокая пустыня",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/great_desert",
+      "charCount": 19306
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "07-дистикомбы-и-вода.txt",
+      "title": "Дистикомбы и вода",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/disticombs_and_water",
+      "charCount": 9975
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "08-харвестер.txt",
+      "title": "Харвестер",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/harvester",
+      "charCount": 13254
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "09-боевые-взаимодействия.txt",
+      "title": "Боевые взаимодействия",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/fight",
+      "charCount": 25518
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "10-бэттлграунды.txt",
+      "title": "Бэттлграунды",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/battlegrounds",
+      "charCount": 16974
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "11-гаджеты.txt",
+      "title": "Гаджеты",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/gadgets",
+      "charCount": 6908
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "12-наука.txt",
+      "title": "Наука",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/science",
+      "charCount": 20010
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "13-медицина.txt",
+      "title": "Медицина",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/medicine",
+      "charCount": 195
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "14-генетика.txt",
+      "title": "Генетика",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/genetics",
+      "charCount": 7868
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "15-городское-строительство.txt",
+      "title": "Городское строительство",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/urbanplanning",
+      "charCount": 20845
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "16-костюм-и-эстетика.txt",
+      "title": "Костюм и эстетика",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/costume",
+      "charCount": 15307
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "17-орден-бене-гессерит.txt",
+      "title": "Орден Бене Гессерит",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/bg",
+      "charCount": 5135
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "18-правдовидение.txt",
+      "title": "Правдовидение",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/truevision",
+      "charCount": 845
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "19-голос.txt",
+      "title": "Голос",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/voice",
+      "charCount": 5448
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "20-ментаты.txt",
+      "title": "Ментаты",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/mentats",
+      "charCount": 19843
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "21-таннаи.txt",
+      "title": "Таннаи",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/tannai",
+      "charCount": 3715
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "22-религия.txt",
+      "title": "Религия",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/religion",
+      "charCount": 5770
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "23-о-рабстве.txt",
+      "title": "О рабстве",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/slavery",
+      "charCount": 2392
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "24-правила-по-сексу.txt",
+      "title": "Правила по сексу",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/sex",
+      "charCount": 4696
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "25-смерть-и-посмертие.txt",
+      "title": "Смерть и посмертие",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/death",
+      "charCount": 6478
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "26-прочие-правила.txt",
+      "title": "Прочие правила",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/other_rules",
+      "charCount": 4635
+    },
+    {
+      "folder": "03-материалы",
+      "file": "01-источники-для-подготовки.txt",
+      "title": "Источники для подготовки",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/lore",
+      "charCount": 7921
+    },
+    {
+      "folder": "03-материалы",
+      "file": "02-глоссарий.txt",
+      "title": "Глоссарий",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/glossary",
+      "charCount": 7295
+    },
+    {
+      "folder": "03-материалы",
+      "file": "03-общая-структура-локаций.txt",
+      "title": "Общая структура локаций",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/locations",
+      "charCount": 2973
+    },
+    {
+      "folder": "03-материалы",
+      "file": "04-великие-дома.txt",
+      "title": "Великие дома",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/great_houses",
+      "charCount": 48257
+    },
+    {
+      "folder": "03-материалы",
+      "file": "05-хронология.txt",
+      "title": "Хронология",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/chronology",
+      "charCount": 24820
+    },
+    {
+      "folder": "03-материалы",
+      "file": "06-школы-и-их-аналоги.txt",
+      "title": "Школы и их аналоги",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/schools",
+      "charCount": 2290
+    },
+    {
+      "folder": "03-материалы",
+      "file": "07-о-роли-бене-гессерит.txt",
+      "title": "О роли Бене Гессерит",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/bg2",
+      "charCount": 6371
+    },
+    {
+      "folder": "03-материалы",
+      "file": "08-кайтайн.txt",
+      "title": "Кайтайн",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/kaitain_tour",
+      "charCount": 10563
+    },
+    {
+      "folder": "03-материалы",
+      "file": "09-религия-на-каждый-день.txt",
+      "title": "Религия на каждый день",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/religion_to_every_day",
+      "charCount": 11548
+    },
+    {
+      "folder": "03-материалы",
+      "file": "10-рубежи.txt",
+      "title": "Рубежи",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/frontiers",
+      "charCount": 10180
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "01-великая-конвенция.txt",
+      "title": "Великая Конвенция",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/great_convention",
+      "charCount": 34021
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "02-оранжевая-католическая-библия.txt",
+      "title": "Оранжевая Католическая Библия",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/ocb",
+      "charCount": 12357
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "03-закон-о-фафрелахе.txt",
+      "title": "Закон о Фафрелахе",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/fafrelakh_law",
+      "charCount": 36635
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "04-закон-о-благородстве-и-дворянстве.txt",
+      "title": "Закон о благородстве и дворянстве",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/nobility_law",
+      "charCount": 9012
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "05-закон-о-становлении-и-низложении-домов.txt",
+      "title": "Закон о становлении и низложении домов",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/nobility_law2",
+      "charCount": 13612
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "06-закон-о-получении-статуса-золото.txt",
+      "title": "Закон о получении статуса Золото",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/gold_law",
+      "charCount": 6339
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "07-закон-о-регламенте-ландсраада.txt",
+      "title": "Закон о регламенте Ландсраада",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/Landsraads_regulations",
+      "charCount": 14800
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "08-закон-о-порядке-уголовных-разбирательств.txt",
+      "title": "Закон о порядке уголовных разбирательств",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/criminal_law",
+      "charCount": 17951
+    },
+    {
+      "folder": "04-законы-империи",
+      "file": "09-закон-об-уголовных-преступлениях.txt",
+      "title": "Закон об уголовных преступлениях",
+      "source": "website",
+      "sourceUrl": "https://duna2026.ru/criminal_law2",
+      "charCount": 19735
+    },
+    {
+      "folder": "02-модельные-правила",
+      "file": "13-медицина.txt",
+      "title": "Медицина",
+      "source": "google-doc",
+      "sourceUrl": "https://docs.google.com/document/d/13Mj5crwneWwKWopbJ5OiQUH7s-9UfqAyUxGL295qJKM",
+      "charCount": 54021,
+      "note": "Полная версия с Google Docs"
+    },
+    {
+      "folder": "03-материалы",
+      "file": "03-общая-структура-локаций.txt",
+      "title": "Общая структура локаций",
+      "source": "google-doc",
+      "sourceUrl": "https://docs.google.com/document/d/1BATYc6e0n6KzRq1DZ3ivd5VD5l_rjwFY9q_X2fvBDIM",
+      "charCount": 86639,
+      "note": "Полная версия с Google Docs"
+    }
+  ],
+  "folders": [
+    {
+      "folder": "01-общие-правила",
+      "fileCount": 11,
+      "totalChars": 43905
+    },
+    {
+      "folder": "02-модельные-правила",
+      "fileCount": 27,
+      "totalChars": 355556
+    },
+    {
+      "folder": "03-материалы",
+      "fileCount": 11,
+      "totalChars": 218857
+    },
+    {
+      "folder": "04-законы-империи",
+      "fileCount": 9,
+      "totalChars": 164462
+    }
+  ]
+}
