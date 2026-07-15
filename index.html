@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Дюна 2026">
-<link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogItCU0Y7QvdCwIDIwMjYg4oCUIC3Qn9GA0LDQstC40LvQsCIsCiAgInNob3J0X25hbWUiOiAi0JTRjtC90LAgMjAyNiIsCiAgImRlc2NyaXB0aW9uIjogItCf0YDQsNCy0LjQu9CwINC/0L7Qu9C10LLQvtC5INGA0L7Qu9C10LLQvtC5INC40LPRgNGLINC/0L4g0YbQuNC60LvRgyDCq9Cl0YDQvtC90LjQutC4INCU0Y7QvdGLwrsiLAogICJzdGFydF91cmwiOiAiaW5kZXguaHRtbCIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZjVlYWQwIiwKICAidGhlbWVfY29sb3IiOiAiIzJjMTgxMCIsCiAgImljb25zIjogW3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0lMjJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyUyMiB2aWV3Qm94PSUyMjAgMCAxOTIgMTkyJTIyJTNFJTNDcmVjdCB3aWR0aD0lMjIxOTIlMjIgaGVpZ2h0PSUyMjE5MiUyMiBmaWxsPSUyMiUyMzJjMTgxMCUyMi8lM0UlM0N0ZXh0IHg9JTIyOTYlMjIgeT0lMjIxNDAlMjIgZm9udC1zaXplPSUyMjEyMCUyMiB0ZXh0LWFuY2hvcj0lMjJtaWRkbGUlMjIgZmlsbD0lMjIlMjNjOWE5NmUlMjIlM0UlRTIlOTglODAlM0MvdGV4dCUzRSUzQy9zdmclM0UiLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCIsInB1cnBvc2UiOiJhbnkgbWFza2FibGUifV19">
+<link rel="manifest" href="manifest.json">
 <title>Дюна 2026 — Правила</title>
 <style>
 
@@ -134,8 +134,19 @@ body{
 .doc-view .doc-title{font-size:1.3rem;font-weight:700;margin-bottom:4px}
 .doc-view .doc-folder{font-size:.8rem;color:var(--spice);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
 .doc-view .doc-text{font-size:.95rem;line-height:1.7;white-space:pre-wrap;word-wrap:break-word;color:var(--text)}
-.doc-view .doc-text mark{background:var(--highlight);color:var(--text);border-radius:2px;padding:0 2px}
+.doc-view .doc-text mark{background:var(--highlight);color:var(--text);border-radius:2px;padding:0 2px;transition:background .2s}
+.doc-view .doc-text mark.current-match{background:var(--spice);color:#fff;border-radius:3px;padding:1px 3px;box-shadow:0 0 8px rgba(224,122,47,0.5)}
 .doc-view .doc-text.is-html{white-space:normal}
+.doc-view .back-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.doc-view .back-row .back-btn{margin-bottom:0}
+.match-nav{display:inline-flex;align-items:center;gap:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:2px 10px;font-size:.85rem;color:var(--text-secondary);margin-left:auto}
+.match-nav button{background:none;border:none;color:var(--spice);cursor:pointer;font-size:1rem;padding:4px 6px;border-radius:50%;display:flex;align-items:center;justify-content:center;width:28px;height:28px;transition:background .15s;-webkit-tap-highlight-color:transparent}
+.match-nav button:hover{background:rgba(224,122,47,0.12)}
+.match-nav button:active{background:rgba(224,122,47,0.2)}
+.match-nav button:disabled{opacity:.3;cursor:default}
+.match-nav .match-counter{font-weight:600;min-width:40px;text-align:center;color:var(--text);font-size:.8rem}
+.search-box.doc-search-mode{border-color:var(--spice);box-shadow:0 0 0 3px rgba(224,122,47,0.2),0 0 12px rgba(224,122,47,0.1)}
+.search-box.doc-search-mode .search-stats-inline{color:var(--spice);font-weight:600}
 .welcome{text-align:center;padding:40px 16px}
 .welcome .icon{font-size:3rem;margin-bottom:16px;opacity:.6}
 .welcome h2{font-size:1.2rem;font-weight:600;margin-bottom:8px;color:var(--text)}
@@ -275,7 +286,14 @@ body{
   </div>
   <div id="results"></div>
   <div class="doc-view" id="docView">
-    <button class="back-btn" id="backBtn">← Назад к результатам</button>
+    <div class="back-row">
+      <button class="back-btn" id="backBtn">← К результатам</button>
+      <div class="match-nav" id="matchNav" style="display:none">
+        <button id="prevMatch" disabled>◂</button>
+        <span class="match-counter" id="matchCounter">0/0</span>
+        <button id="nextMatch" disabled>▸</button>
+      </div>
+    </div>
     <div class="doc-title" id="docTitle"></div>
     <div class="doc-folder" id="docFolder"></div>
     <div class="doc-text" id="docText"></div>
@@ -303,6 +321,10 @@ const docTitle=document.getElementById('docTitle');
 const docFolder=document.getElementById('docFolder');
 const docText=document.getElementById('docText');
 const backBtn=document.getElementById('backBtn');
+const matchNav=document.getElementById('matchNav');
+const matchCounter=document.getElementById('matchCounter');
+const prevMatchBtn=document.getElementById('prevMatch');
+const nextMatchBtn=document.getElementById('nextMatch');
 const menuBtn=document.getElementById('menuBtn');
 const drawer=document.getElementById('drawer');
 const drawerOverlay=document.getElementById('drawerOverlay');
@@ -312,6 +334,9 @@ const closeDrawerBtn=document.getElementById('closeDrawerBtn');
 let currentQuery='';
 let currentDocIndex=-1;
 let searchResults=[];
+let currentMatchIndex=-1;
+let totalMatches=0;
+let isDocSearchMode=false;
 
 drawerContent.innerHTML='<div class="drawer-section"><div class="drawer-section-title">Общие правила<\/div><div class="drawer-item" data-index="0">Даты игры и полигон<\/div><div class="drawer-item" data-index="1">Идея игры<\/div><div class="drawer-item" data-index="2">Мастера<\/div><div class="drawer-item" data-index="3">Взносы<\/div><div class="drawer-item" data-index="4">Кабаки<\/div><div class="drawer-item" data-index="5">Гости на игре<\/div><div class="drawer-item" data-index="6">Дети на игре<\/div><div class="drawer-item" data-index="7">Домашние животные<\/div><div class="drawer-item" data-index="8">Фото и видеографы<\/div><div class="drawer-item" data-index="9">Кросспол<\/div><div class="drawer-item" data-index="10">Современное на игре<\/div><\/div><div class="drawer-section"><div class="drawer-section-title">Модельные правила<\/div><div class="drawer-item" data-index="11">Фафрелах<\/div><div class="drawer-item" data-index="12">Экономика<\/div><div class="drawer-item" data-index="13">Макроэкономика и политика<\/div><div class="drawer-item" data-index="14">Космическая гильдия<\/div><div class="drawer-item" data-index="15">Пряность<\/div><div class="drawer-item" data-index="16">Глубокая пустыня<\/div><div class="drawer-item" data-index="17">Дистикомбы и вода<\/div><div class="drawer-item" data-index="18">Харвестер<\/div><div class="drawer-item" data-index="19">Боевые взаимодействия<\/div><div class="drawer-item" data-index="20">Бэттлграунды<\/div><div class="drawer-item" data-index="21">Гаджеты<\/div><div class="drawer-item" data-index="22">Наука<\/div><div class="drawer-item" data-index="23">Медицина<\/div><div class="drawer-item" data-index="24">Генетика<\/div><div class="drawer-item" data-index="25">Городское строительство<\/div><div class="drawer-item" data-index="26">Костюм и эстетика<\/div><div class="drawer-item" data-index="27">Орден Бене Гессерит<\/div><div class="drawer-item" data-index="28">Правдовидение<\/div><div class="drawer-item" data-index="29">Голос<\/div><div class="drawer-item" data-index="30">Ментаты<\/div><div class="drawer-item" data-index="31">Таннаи<\/div><div class="drawer-item" data-index="32">Религия<\/div><div class="drawer-item" data-index="33">О рабстве<\/div><div class="drawer-item" data-index="34">Правила по сексу<\/div><div class="drawer-item" data-index="35">Смерть и посмертие<\/div><div class="drawer-item" data-index="36">Прочие правила<\/div><\/div><div class="drawer-section"><div class="drawer-section-title">Материалы<\/div><div class="drawer-item" data-index="37">Источники для подготовки<\/div><div class="drawer-item" data-index="38">Глоссарий<\/div><div class="drawer-item" data-index="39">Общая структура локаций<\/div><div class="drawer-item" data-index="40">Великие дома<\/div><div class="drawer-item" data-index="41">Хронология<\/div><div class="drawer-item" data-index="42">Школы и их аналоги<\/div><div class="drawer-item" data-index="43">О роли Бене Гессерит<\/div><div class="drawer-item" data-index="44">Кайтайн<\/div><div class="drawer-item" data-index="45">Религия на каждый день<\/div><div class="drawer-item" data-index="46">Рубежи<\/div><div class="drawer-item" data-index="47">Географические открытия<\/div><\/div><div class="drawer-section"><div class="drawer-section-title">Законы Империи<\/div><div class="drawer-item" data-index="48">Великая Конвенция<\/div><div class="drawer-item" data-index="49">Оранжевая Католическая Библия<\/div><div class="drawer-item" data-index="50">Закон о Фафрелахе<\/div><div class="drawer-item" data-index="51">Закон о благородстве и дворянстве<\/div><div class="drawer-item" data-index="52">Закон о становлении и низложении домов<\/div><div class="drawer-item" data-index="53">Закон о получении статуса Золото<\/div><div class="drawer-item" data-index="54">Закон о регламенте Ландсраада<\/div><div class="drawer-item" data-index="55">Закон о порядке уголовных разбирательств<\/div><div class="drawer-item" data-index="56">Закон об уголовных преступлениях<\/div><div class="drawer-item" data-index="57">Приложение 1: Статусы Фафрелах<\/div><div class="drawer-item" data-index="58">Приложение 2: Обязанности по Фафрелаху<\/div><div class="drawer-item" data-index="59">Приложение 3: Права по Фафрелаху<\/div><\/div>';
 
@@ -371,9 +396,11 @@ function doSearch(query){
   if(searchResults.length===0){
     resultsEl.innerHTML='<div class="no-results"><p>Ничего не найдено по запросу &laquo;'+esc(query)+'&raquo;</p></div>';
     searchStats.textContent='0 результатов';
+    backBtn.textContent='← К результатам';
     return;
   }
   searchStats.textContent=searchResults.length+' документов найдено';
+  backBtn.textContent='← К результатам ('+searchResults.length+' док.)';
   var html='';
   for(var ri=0;ri<searchResults.length;ri++){
     var r=searchResults[ri];
@@ -414,31 +441,10 @@ function openDocument(index){
   
   if(doc.isHTML){
     docText.className='doc-text is-html';
-    if(currentQuery){
-      var words=currentQuery.toLowerCase().split(/\s+/).filter(function(w){return w.length>0});
-      var text=stripHTML(doc.text);
-      var highlighted=esc(text);
-      for(var wi=0;wi<words.length;wi++){
-        var re=new RegExp('('+escRegex(words[wi])+')','gi');
-        highlighted=highlighted.replace(re,'<mark>$1</mark>');
-      }
-      docText.innerHTML=highlighted;
-    } else {
-      docText.innerHTML=doc.text;
-    }
+    docText.innerHTML=doc.text;
   } else {
     docText.className='doc-text';
-    if(currentQuery){
-      var words=currentQuery.toLowerCase().split(/\s+/).filter(function(w){return w.length>0});
-      var highlighted=esc(doc.text);
-      for(var wi=0;wi<words.length;wi++){
-        var re=new RegExp('('+escRegex(words[wi])+')','gi');
-        highlighted=highlighted.replace(re,'<mark>$1</mark>');
-      }
-      docText.innerHTML=highlighted;
-    } else {
-      docText.textContent=doc.text;
-    }
+    docText.textContent=doc.text;
   }
   
   welcomeEl.style.display='none';
@@ -448,6 +454,20 @@ function openDocument(index){
   drawerContent.querySelectorAll('.drawer-item').forEach(function(el){
     el.classList.toggle('active',parseInt(el.dataset.index)===index);
   });
+  
+  // Update back button with result count
+  if(currentQuery&&searchResults.length>0){
+    backBtn.textContent='← К результатам ('+searchResults.length+' док.)';
+  } else {
+    backBtn.textContent='← К результатам';
+  }
+  
+  // If there's a query, highlight in doc
+  if(currentQuery){
+    highlightInDoc(currentQuery);
+  } else {
+    clearDocSearch();
+  }
 }
 
 function showWelcome(){
@@ -456,21 +476,176 @@ function showWelcome(){
   docView.classList.remove('visible');
   searchStats.textContent='';
   resultsEl.innerHTML='';
+  clearDocSearch();
+}
+
+function highlightInDoc(query){
+  query=query.trim();
+  if(!query||currentDocIndex===-1){
+    clearDocSearch();
+    return;
+  }
+  
+  isDocSearchMode=true;
+  var doc=DOCUMENTS[currentDocIndex];
+  var text=doc.isHTML?stripHTML(doc.text):doc.text;
+  var words=query.toLowerCase().split(/\s+/).filter(function(w){return w.length>0});
+  if(words.length===0){clearDocSearch();return;}
+  
+  // Build regex from all words
+  var pattern=words.map(function(w){return escRegex(w)}).join('|');
+  var re=new RegExp('('+pattern+')','gi');
+  
+  // Highlight all matches
+  var highlighted=esc(text);
+  var matches=[];
+  var tempRe=new RegExp(pattern,'gi');
+  var m;
+  while((m=tempRe.exec(text))!==null){matches.push({index:m.index,length:m[0].length});}
+  
+  totalMatches=matches.length;
+  
+  if(totalMatches===0){
+    docText.innerHTML=highlighted;
+    matchNav.style.display='none';
+    searchStats.textContent='0 совпадений в документе';
+    return;
+  }
+  
+  // Replace with marks, first one gets current-match class
+  var htmlResult='';
+  var lastIndex=0;
+  for(var mi=0;mi<matches.length;mi++){
+    var match=matches[mi];
+    htmlResult+=esc(text.slice(lastIndex,match.index));
+    var matchText=esc(text.slice(match.index,match.index+match.length));
+    if(mi===0){
+      htmlResult+='<mark class="current-match">'+matchText+'</mark>';
+    } else {
+      htmlResult+='<mark>'+matchText+'</mark>';
+    }
+    lastIndex=match.index+match.length;
+  }
+  htmlResult+=esc(text.slice(lastIndex));
+  docText.innerHTML=htmlResult;
+  
+  currentMatchIndex=0;
+  matchNav.style.display='inline-flex';
+  updateMatchCounter();
+  scrollToMatch(0);
+  searchStats.textContent='Найдено '+totalMatches+' совпадений';
+  
+  // Add glow to search box
+  document.querySelector('.search-box').classList.add('doc-search-mode');
+}
+
+function clearDocSearch(){
+  isDocSearchMode=false;
+  currentMatchIndex=-1;
+  totalMatches=0;
+  matchNav.style.display='none';
+  document.querySelector('.search-box').classList.remove('doc-search-mode');
+  // Restore doc text without highlights if in doc view
+  if(currentDocIndex!==-1){
+    var doc=DOCUMENTS[currentDocIndex];
+    if(doc.isHTML){
+      docText.innerHTML=doc.text;
+    } else {
+      docText.textContent=doc.text;
+    }
+  }
+}
+
+function updateMatchCounter(){
+  if(totalMatches===0){
+    matchCounter.textContent='0/0';
+    prevMatchBtn.disabled=true;
+    nextMatchBtn.disabled=true;
+    return;
+  }
+  matchCounter.textContent=(currentMatchIndex+1)+'/'+totalMatches;
+  prevMatchBtn.disabled=currentMatchIndex<=0;
+  nextMatchBtn.disabled=currentMatchIndex>=totalMatches-1;
+}
+
+function scrollToMatch(index){
+  var marks=docText.querySelectorAll('mark');
+  if(!marks||marks.length===0||index<0||index>=marks.length)return;
+  
+  // Remove current class from all
+  marks.forEach(function(m){m.classList.remove('current-match');});
+  // Add to target
+  marks[index].classList.add('current-match');
+  currentMatchIndex=index;
+  updateMatchCounter();
+  
+  // Scroll to the match
+  marks[index].scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function nextMatch(){
+  if(currentMatchIndex<totalMatches-1){
+    scrollToMatch(currentMatchIndex+1);
+  }
+}
+
+function prevMatch(){
+  if(currentMatchIndex>0){
+    scrollToMatch(currentMatchIndex-1);
+  }
 }
 
 searchInput.addEventListener('input',function(){
   clearBtn.classList.toggle('visible',this.value.length>0);
-  doSearch(this.value);
+  if(docView.classList.contains('visible')&&currentDocIndex!==-1){
+    if(this.value.trim()){
+      highlightInDoc(this.value);
+    } else {
+      clearDocSearch();
+      searchStats.textContent='';
+    }
+  } else {
+    doSearch(this.value);
+  }
 });
 clearBtn.addEventListener('click',function(){
   searchInput.value='';
   clearBtn.classList.remove('visible');
-  doSearch('');
-  searchInput.focus();
+  if(docView.classList.contains('visible')&&currentDocIndex!==-1){
+    clearDocSearch();
+    searchStats.textContent='';
+    searchInput.focus();
+  } else {
+    doSearch('');
+    searchInput.focus();
+  }
 });
 backBtn.addEventListener('click',function(){
-  if(currentQuery){docView.classList.remove('visible');resultsEl.style.display='';window.scrollTo({top:0,behavior:'smooth'});}
-  else{showWelcome();}
+  clearDocSearch();
+  if(currentQuery){
+    docView.classList.remove('visible');
+    resultsEl.style.display='';
+    window.scrollTo({top:0,behavior:'smooth'});
+    doSearch(currentQuery);
+  } else {
+    showWelcome();
+  }
+});
+
+prevMatchBtn.addEventListener('click',prevMatch);
+nextMatchBtn.addEventListener('click',nextMatch);
+
+// Keyboard navigation for matches
+document.addEventListener('keydown',function(e){
+  if(!docView.classList.contains('visible')||totalMatches===0)return;
+  if(e.key==='F3'||(e.key==='f'&&e.ctrlKey)||(e.key==='г'&&e.ctrlKey)){
+    e.preventDefault();
+    if(e.shiftKey){prevMatch();}else{nextMatch();}
+  }
+  if(e.key==='Enter'&&isDocSearchMode){
+    e.preventDefault();
+    nextMatch();
+  }
 });
 
 function openDrawer(){drawer.classList.add('open');drawerOverlay.classList.add('open');document.body.style.overflow='hidden';}
